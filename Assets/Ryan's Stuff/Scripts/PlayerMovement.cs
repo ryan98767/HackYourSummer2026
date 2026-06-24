@@ -15,13 +15,24 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontal;
     private float vertical;
+    private Vector2 moveInput;
+
+    [SerializeField] PlayerInput playerInput;
 
     //to check which movement system is being used and easily able to switch
     private bool sideScroll = true;
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
+        
+        if (sideScroll)
+        {
+            rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
+        }
+        else
+        {
+            rb.linearVelocity = moveInput.normalized * moveSpeed;
+        }
     }
 
     #region PLAYER_CONTROLS
@@ -29,13 +40,13 @@ public class PlayerMovement : MonoBehaviour
     {
         //side scroll movements
         //horizontal is used in both
-        horizontal = context.ReadValue<Vector2>().x;
+        moveInput = context.ReadValue<Vector2>();
+        horizontal = moveInput.x;
         //top down movements
         //vertical is only used in top down
-        if (!sideScroll)
-        {
-            vertical = context.ReadValue<Vector2>().y;
-        }
+        
+        vertical = moveInput.y;
+        
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -45,6 +56,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump);
         }
+        else if (!sideScroll)
+        {
+            Debug.Log("You don't need to jump here!");
+        }
     }
 
     private bool IsGrounded()
@@ -52,4 +67,24 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapBox(groundCheck.position,new Vector2(1f, 0.1f), 0, groundLayer);
     }
     #endregion
+
+    //temporary function to switch between control schemes
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Switch"))
+        {
+            sideScroll = !sideScroll;
+            rb.gravityScale = sideScroll ? 1f : 0f;
+            rb.linearVelocity = Vector2.zero;
+            Debug.Log("Switched control scheme");
+            if (playerInput.currentActionMap.name == "SideScroll")
+            {
+                playerInput.SwitchCurrentActionMap("TopDown");
+            }
+            else if (playerInput.currentActionMap.name == "TopDown")
+            {
+                playerInput.SwitchCurrentActionMap("SideScroll");
+            }
+        }
+    }
 }
