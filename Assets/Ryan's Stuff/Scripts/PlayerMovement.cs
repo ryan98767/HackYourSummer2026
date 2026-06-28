@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
         if (sideScroll)
         {
             rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
@@ -33,6 +33,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = moveInput.normalized * moveSpeed;
         }
+    }
+
+    public bool SideScroll
+    {
+        get { return sideScroll; }
+        set { sideScroll = value; }
     }
 
     #region PLAYER_CONTROLS
