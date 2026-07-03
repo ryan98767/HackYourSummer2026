@@ -19,8 +19,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] PlayerInput playerInput;
 
-    //to check which movement system is being used and easily able to switch
-    private bool sideScroll = true;
+    /*
+     * NOTE FROM ADON: Changed the field to be serialized so it can be switched at 
+     * default
+     */
+    // to check which movement system is being used and easily able to switch
+    [SerializeField] bool sideScroll = true;
 
     private void FixedUpdate()
     {
@@ -52,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     public void Jump(InputAction.CallbackContext context)
     {
         //jumping is only used in side scroll
-        if (context.performed && IsGrounded() && sideScroll)
+        if (sideScroll && context.performed && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump);
         }
@@ -68,23 +72,23 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
-    //temporary function to switch between control schemes
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Switch"))
-        {
-            sideScroll = !sideScroll;
-            rb.gravityScale = sideScroll ? 1f : 0f;
-            rb.linearVelocity = Vector2.zero;
-            Debug.Log("Switched control scheme");
-            if (playerInput.currentActionMap.name == "SideScroll")
-            {
-                playerInput.SwitchCurrentActionMap("TopDown");
-            }
-            else if (playerInput.currentActionMap.name == "TopDown")
-            {
-                playerInput.SwitchCurrentActionMap("SideScroll");
-            }
-        }
-    }
+    ////temporary function to switch between control schemes
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Switch"))
+    //    {
+    //        sideScroll = !sideScroll;
+    //        rb.gravityScale = sideScroll ? 1f : 0f;
+    //        rb.linearVelocity = Vector2.zero;
+    //        Debug.Log("Switched control scheme");
+    //        if (playerInput.currentActionMap.name == "SideScroll")
+    //        {
+    //            playerInput.SwitchCurrentActionMap("TopDown");
+    //        }
+    //        else if (playerInput.currentActionMap.name == "TopDown")
+    //        {
+    //            playerInput.SwitchCurrentActionMap("SideScroll");
+    //        }
+    //    }
+    //}
 }
