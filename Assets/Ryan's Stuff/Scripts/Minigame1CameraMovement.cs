@@ -14,4 +14,9 @@ public class Minigame1CameraMovement : MonoBehaviour
         //Debug.Log("Current Speed: " + scrollSpeed.ToString());
         transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
     }
+
+    public float ScrollSpeed
+    {
+        get { return scrollSpeed; }
+    }
 }
