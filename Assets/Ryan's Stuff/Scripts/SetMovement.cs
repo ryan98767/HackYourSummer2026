@@ -7,6 +7,7 @@ public class SetMovement : MonoBehaviour
     private string currentMinigame; 
 
     private bool sideScroll;
+
     void Start()
     {
         //a manager to set the control scheme for each minigame, add this to an empty game manager in each minigame

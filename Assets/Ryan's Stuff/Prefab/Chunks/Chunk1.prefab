@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2449932165459598619}
-  m_Layer: 0
+  - component: {fileID: 7186574282598501773}
+  m_Layer: 3
   m_Name: Chunk1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,6 +35,20 @@ Transform:
   - {fileID: 4945298374770096126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7186574282598501773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4464352397582695016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b8936949a8d6b40810f3ffab08b03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 20
+  spawnPoint: {fileID: 2329446304522839814}
 --- !u!1 &4844318045989938428
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +60,7 @@ GameObject:
   - component: {fileID: 4945298374770096126}
   - component: {fileID: 4078763525625931643}
   - component: {fileID: 3961459902785076460}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2329446304522839814}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawnpoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

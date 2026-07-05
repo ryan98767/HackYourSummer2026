@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8045784517146644025}
   - component: {fileID: 7438876868321776666}
   - component: {fileID: 9027046785135273582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7346992951149122945}
-  m_Layer: 0
+  - component: {fileID: 6906827937608765351}
+  m_Layer: 3
   m_Name: Chunk4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,6 +174,20 @@ Transform:
   - {fileID: 6343920005939334658}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6906827937608765351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3714186742963218687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b8936949a8d6b40810f3ffab08b03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 20
+  spawnPoint: {fileID: 6343920005939334658}
 --- !u!1 &4680279421040950550
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +199,7 @@ GameObject:
   - component: {fileID: 6746792406396048574}
   - component: {fileID: 5309320066295068054}
   - component: {fileID: 3528284799894368528}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6343920005939334658}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +369,7 @@ GameObject:
   - component: {fileID: 5874754185128030370}
   - component: {fileID: 7525628130193708970}
   - component: {fileID: 1729436382065609787}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

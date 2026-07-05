@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1855864985790964746}
   - component: {fileID: 998418478150640905}
   - component: {fileID: 911109046460805526}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3924603134352242311}
-  m_Layer: 0
+  - component: {fileID: 4965971397889532744}
+  m_Layer: 3
   m_Name: Chunk2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +171,20 @@ Transform:
   - {fileID: 1855864985790964746}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4965971397889532744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479979792396732210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b8936949a8d6b40810f3ffab08b03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 20
+  spawnPoint: {fileID: 4617349154041089820}
 --- !u!1 &3183329026723642242
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4617349154041089820}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +227,7 @@ GameObject:
   - component: {fileID: 1128090473362231176}
   - component: {fileID: 2860960428158898278}
   - component: {fileID: 4974255487427375716}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +495,7 @@ GameObject:
   - component: {fileID: 7854022025988913762}
   - component: {fileID: 4742988196049479315}
   - component: {fileID: 5860595729273362861}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
