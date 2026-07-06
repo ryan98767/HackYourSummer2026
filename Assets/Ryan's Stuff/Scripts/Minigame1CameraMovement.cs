@@ -18,5 +18,6 @@ public class Minigame1CameraMovement : MonoBehaviour
     public float ScrollSpeed
     {
         get { return scrollSpeed; }
+        set { scrollSpeed = value; }
     }
 }

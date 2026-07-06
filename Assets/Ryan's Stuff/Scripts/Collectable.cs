@@ -75,8 +75,8 @@ public class Collectable : MonoBehaviour
             ScoreManager.AddScore(1);
             playerMovement = collision.GetComponent<PlayerMovement>();
             //increments player speed by a small amount to try and out run the net
-            playerMovement.MoveSpeed += 0.05f;
-            followSpeed += 0.05f;
+            playerMovement.MoveSpeed += 0.1f;
+            followSpeed += 0.2f;
 
         }
     }

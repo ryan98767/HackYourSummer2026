@@ -551,6 +551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1665575185}
+  cameraMovement: {fileID: 0}
+  netHealth: 5
 --- !u!212 &565186956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -669,7 +671,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -832,6 +834,9 @@ MonoBehaviour:
   firstSpawn: {fileID: 1748454646}
   collectables:
   - {fileID: 5450817851367170031, guid: 4a0b29552c7783d49b0638c908346851, type: 3}
+  - {fileID: 4934193678476350742, guid: 92e1d6b35af7f3e4f9597af468838025, type: 3}
+  - {fileID: 2951942761558131673, guid: 5ebe9f787aa63fc489921dc8832c6ee3, type: 3}
+  - {fileID: 1378896522304071252, guid: 0fa4830aa41e9554dab32611144849dd, type: 3}
   spawnInterval: 2
   spawnYRange: {x: -2, y: 2}
   collectableRadius: 0.5
