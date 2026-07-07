@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     //to check which movement system is being used and easily able to switch
     private bool sideScroll = true;
 
+    //death check
+    private bool hasDied = false;
+
     private void FixedUpdate()
     {
 
@@ -33,12 +36,26 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = moveInput.normalized * moveSpeed;
         }
+
+        //Debug.Log("Player speed: " + moveSpeed.ToString());
     }
 
     public bool SideScroll
     {
         get { return sideScroll; }
         set { sideScroll = value; }
+    }
+
+    public bool HasDied
+    {
+        get { return hasDied; }
+        set { hasDied = value; }
+    }
+
+    public float MoveSpeed
+    {
+        get { return moveSpeed; }
+        set { moveSpeed = value; }
     }
 
     #region PLAYER_CONTROLS
@@ -50,9 +67,9 @@ public class PlayerMovement : MonoBehaviour
         horizontal = moveInput.x;
         //top down movements
         //vertical is only used in top down
-        
+
         vertical = moveInput.y;
-        
+
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -70,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapBox(groundCheck.position,new Vector2(1f, 0.1f), 0, groundLayer);
+        return Physics2D.OverlapBox(groundCheck.position, new Vector2(1f, 0.1f), 0, groundLayer);
     }
     #endregion
 
@@ -92,5 +109,17 @@ public class PlayerMovement : MonoBehaviour
                 playerInput.SwitchCurrentActionMap("SideScroll");
             }
         }
+    }
+
+    public void Die()
+    {
+        if (HasDied) { return; }
+        //if the player dies and then re-triggers death, such as animation freezing on the screen
+        //causing them to recollide with an entity, won't re call the function
+
+        hasDied = true;
+        Debug.Log("Player has died");
+        //placeholder code for things like death animations
+        //playerAnimation.SetTrigger("Die", true);
     }
 }

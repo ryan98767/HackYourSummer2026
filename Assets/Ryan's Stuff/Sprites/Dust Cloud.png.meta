@@ -1,0 +1,450 @@
+fileFormatVersion: 2
+guid: d52e9243d6541c745b227512a3b2f2ef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7369104914079125384
+    second: Dust Cloud_0
+  - first:
+      213: 77579250840772612
+    second: Dust Cloud_1
+  - first:
+      213: -6788772501716800648
+    second: Dust Cloud_2
+  - first:
+      213: 2615137532268134644
+    second: Dust Cloud_3
+  - first:
+      213: 5149331456960060166
+    second: Dust Cloud_4
+  - first:
+      213: 8159299301954621547
+    second: Dust Cloud_5
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dust Cloud_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2179
+        width: 2000
+        height: 681
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 444.03296, y: -320.02347}
+        - {x: 861.5, y: -302.44534}
+        - {x: 861.5, y: 279.09763}
+        - {x: 772.2381, y: 292.28122}
+        - {x: 715.0952, y: 295.2109}
+        - {x: 675.5348, y: 289.35153}
+        - {x: 637.4395, y: 283.49216}
+        - {x: 635.97437, y: 282.0273}
+        - {x: 631.57874, y: 282.0273}
+        - {x: 653.55676, y: 289.35153}
+        - {x: 747.32965, y: 305.4648}
+        - {x: 861.5, y: 296.67575}
+        - {x: 861.5, y: 340.5}
+        - {x: 587.6227, y: 340.5}
+        - {x: 237.43954, y: 232.22263}
+        - {x: 263.81317, y: 198.53122}
+        - {x: 296.0476, y: 189.74216}
+        - {x: 313.63, y: 163.37497}
+        - {x: 243.30035, y: 210.24997}
+        - {x: 60.15017, y: 229.29294}
+        - {x: -709.08057, y: -85.648476}
+        - {x: -861.46155, y: -274.6133}
+        - {x: -861.46155, y: -339.06644}
+        - {x: -849.7399, y: -340.5}
+        - {x: -383.80588, y: -340.5}
+      - - {x: 59.17336, y: 109.41989}
+        - {x: 68.941376, y: 110.64059}
+        - {x: 112.89742, y: 122.35934}
+        - {x: 150.99266, y: 135.54294}
+        - {x: 161.24907, y: 138.47263}
+        - {x: 167.10988, y: 141.40231}
+        - {x: 167.40291, y: 141.40231}
+        - {x: 164.17947, y: 139.93747}
+        - {x: 159.78387, y: 137.00778}
+        - {x: 156.85347, y: 137.00778}
+        - {x: 146.59706, y: 132.61324}
+        - {x: 93.8498, y: 113.570274}
+        - {x: 77.73258, y: 112.10543}
+        - {x: 76.26739, y: 110.64059}
+      - - {x: -486.85834, y: -115.4879}
+        - {x: -479.04398, y: -112.01566}
+        - {x: -476.11356, y: -109.085976}
+        - {x: -446.80954, y: -87.11332}
+        - {x: -423.3663, y: -78.32426}
+        - {x: -323.7326, y: 8.101523}
+        - {x: -207.9817, y: 43.257774}
+        - {x: -200.65569, y: 46.18746}
+        - {x: -199.19049, y: 49.11715}
+        - {x: -192.15752, y: 49.11715}
+        - {x: -203.58609, y: 44.72262}
+        - {x: -219.70331, y: 35.933556}
+        - {x: -307.6154, y: 8.101523}
+        - {x: -467.32236, y: -112.01566}
+        - {x: -468.78757, y: -113.48051}
+      - - {x: -745.71063, y: -221.87895}
+        - {x: -744.2454, y: -221.87895}
+        - {x: -738.38464, y: -217.48442}
+        - {x: -725.1978, y: -217.48442}
+        - {x: -720.8022, y: -216.01958}
+        - {x: -712.011, y: -207.23051}
+        - {x: -701.7546, y: -199.9063}
+        - {x: -706.1502, y: -204.30083}
+        - {x: -712.011, y: -211.62505}
+        - {x: -719.33704, y: -226.27348}
+        - {x: -723.7326, y: -226.27348}
+        - {x: -733.989, y: -229.20317}
+        - {x: -741.315, y: -230.66801}
+        - {x: -747.17584, y: -232.13286}
+        - {x: -748.64105, y: -233.5977}
+        - {x: -755.96704, y: -233.5977}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f854c40e1544660800000000000000
+      internalID: 7369104914079125384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust Cloud_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1040
+        width: 2000
+        height: 689
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 334.6227, y: 313.9023}
+        - {x: 330.2325, y: 311.56146}
+        - {x: -181.12819, y: 240.66014}
+        - {x: -185.5238, y: 204.03903}
+        - {x: -175.2674, y: 176.207}
+        - {x: -216.29303, y: 161.55856}
+        - {x: -279.2967, y: 161.55856}
+        - {x: -276.3663, y: 163.0234}
+        - {x: -270.5055, y: 161.55856}
+        - {x: -214.82784, y: 180.60153}
+        - {x: -200.17581, y: 192.32028}
+        - {x: -200.17581, y: 220.15231}
+        - {x: -269.04028, y: 319.7617}
+        - {x: -732.04395, y: 113.21873}
+        - {x: -887.3553, y: -86.00002}
+        - {x: -887.3553, y: -122.62112}
+        - {x: -866.84247, y: -132.87503}
+        - {x: -853.65564, y: -129.94534}
+        - {x: -843.39923, y: -122.62112}
+        - {x: -887.3553, y: -165.1016}
+        - {x: -887.3553, y: -323}
+        - {x: 888, y: -323}
+        - {x: 888, y: 323}
+        - {x: 378.57877, y: 323}
+      - - {x: -24.35164, y: 176.207}
+        - {x: -53.65567, y: 176.207}
+        - {x: -55.120872, y: 177.67184}
+        - {x: -72.70329, y: 180.60153}
+        - {x: -75.78022, y: 180.45505}
+        - {x: -75.63369, y: 180.60153}
+        - {x: -68.307686, y: 180.60153}
+        - {x: -52.190468, y: 183.53122}
+        - {x: -31.677649, y: 187.92575}
+        - {x: -8.234425, y: 192.32028}
+        - {x: 7.882791, y: 195.24997}
+        - {x: 9.347993, y: 196.71481}
+        - {x: 12.278396, y: 196.71481}
+        - {x: 4.9523883, y: 192.32028}
+        - {x: -3.8388207, y: 186.4609}
+        - {x: -14.095231, y: 180.60153}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4002e48eaed931100800000000000000
+      internalID: 77579250840772612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust Cloud_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 222
+        width: 2000
+        height: 632
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 387.16116, y: 248.5}
+        - {x: 387.16116, y: 226.53516}
+        - {x: 401.81317, y: 220.67578}
+        - {x: 460.42123, y: 220.67578}
+        - {x: 499.09573, y: 233.56413}
+        - {x: 338.8095, y: 125.46093}
+        - {x: 111.70328, y: 156.22266}
+        - {x: 31.117199, y: 151.82812}
+        - {x: -59.725292, y: 116.67187}
+        - {x: -80.23811, y: 103.48827}
+        - {x: -56.794888, y: 121.0664}
+        - {x: 54.56042, y: 165.01172}
+        - {x: 271.41025, y: 179.66016}
+        - {x: 321.22708, y: 185.51953}
+        - {x: 356.3919, y: 197.23828}
+        - {x: 368.11353, y: 217.7461}
+        - {x: 350.53113, y: 229.46484}
+        - {x: 309.50546, y: 235.32422}
+        - {x: 198.15016, y: 248.5}
+        - {x: -115.40295, y: 248.5}
+        - {x: -264.8535, y: 75.65624}
+        - {x: -264.8535, y: 27.316399}
+        - {x: -489.02933, y: 65.402336}
+        - {x: -392.32602, y: 56.613274}
+        - {x: -345.43958, y: 65.402336}
+        - {x: -324.92676, y: 74.1914}
+        - {x: -326.39197, y: 94.69921}
+        - {x: -335.18317, y: 99.09374}
+        - {x: -363.022, y: 110.81249}
+        - {x: -474.3773, y: 219.21094}
+        - {x: -872.9121, y: -23.953133}
+        - {x: -823.0953, y: -63.503914}
+        - {x: -812.83887, y: -67.898445}
+        - {x: -799.65204, y: -67.898445}
+        - {x: -790.86084, y: -66.4336}
+        - {x: -785, y: -64.96876}
+        - {x: -774.7436, y: -62.03907}
+        - {x: -771.8132, y: -62.03907}
+        - {x: -802.58246, y: -69.36329}
+        - {x: -814.304, y: -67.898445}
+        - {x: -891.9597, y: -136.74611}
+        - {x: -891.9597, y: -224.63673}
+        - {x: -720.5311, y: -248.07423}
+        - {x: 439.90842, y: -248.07423}
+        - {x: 892.5, y: -215.84767}
+        - {x: 892.5, y: 248.5}
+        - {x: 390.09155, y: 248.5}
+      - - {x: -31.886465, y: 191.3789}
+        - {x: -31.886465, y: 195.77344}
+        - {x: -33.351665, y: 197.23828}
+        - {x: -27.49086, y: 195.77344}
+        - {x: -26.02566, y: 197.23828}
+        - {x: -11.373644, y: 197.23828}
+        - {x: -9.9084425, y: 198.70312}
+        - {x: -0.31803116, y: 199.50212}
+        - {x: -1.117234, y: 198.70312}
+        - {x: -5.5128384, y: 198.70312}
+        - {x: -6.9780397, y: 197.23828}
+        - {x: -9.9084425, y: 197.23828}
+        - {x: -15.769249, y: 194.3086}
+        - {x: -20.164852, y: 194.3086}
+        - {x: -21.630054, y: 192.84375}
+        - {x: -24.560457, y: 192.84375}
+        - {x: -26.02566, y: 191.3789}
+        - {x: -30.421263, y: 189.91406}
+      - - {x: -83.16852, y: 150.36328}
+        - {x: -83.16852, y: 153.29297}
+        - {x: -75.84251, y: 154.75781}
+        - {x: -71.44691, y: 157.6875}
+        - {x: -69.981705, y: 156.22266}
+        - {x: -77.30771, y: 153.29297}
+        - {x: -81.703316, y: 148.89844}
+        - {x: -90.49452, y: 141.57422}
+        - {x: -91.959724, y: 141.57422}
+      - - {x: -719.0659, y: -47.390633}
+        - {x: -716.13556, y: -47.390633}
+        - {x: -707.34436, y: -42.9961}
+        - {x: -707.34436, y: -45.92579}
+        - {x: -716.13556, y: -47.390633}
+        - {x: -717.60077, y: -48.855476}
+        - {x: -721.7033, y: -48.855476}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f042a1eab5da4420800000000000000
+      internalID: 2615137532268134644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6f89c1fcad78d7e44a9dd9e711f679b3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Dust Cloud_0: 7369104914079125384
+      Dust Cloud_1: 77579250840772612
+      Dust Cloud_2: -6788772501716800648
+      Dust Cloud_3: 2615137532268134644
+      Dust Cloud_4: 5149331456960060166
+      Dust Cloud_5: 8159299301954621547
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
