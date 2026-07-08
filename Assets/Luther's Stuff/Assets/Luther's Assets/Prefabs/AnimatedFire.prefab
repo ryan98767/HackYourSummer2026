@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8492166485378335460}
   - component: {fileID: 8425682519859865355}
   - component: {fileID: 8532712111764604798}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: AnimatedFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

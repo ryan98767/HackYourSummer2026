@@ -6014,8 +6014,8 @@ MonoBehaviour:
   sprayRange: 1.2
   fireLayer:
     serializedVersion: 2
-    m_Bits: 64
-  debugSpray: 0
+    m_Bits: 512
+  debugSpray: 1
   carrySlot: {fileID: 1064632554}
 --- !u!1 &2020262270
 GameObject:
