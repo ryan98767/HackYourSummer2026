@@ -19,12 +19,6 @@ public class BulletHellInGameState : GameState
 
 
     /// <summary>
-    /// A reference to the final score the player gets before dying
-    /// </summary>
-    private float finalScore;
-
-
-    /// <summary>
     /// Prepares the state for when it's actually going to be used
     /// </summary>
     /// <param name="player">a reference to the player GO</param>
@@ -61,6 +55,7 @@ public class BulletHellInGameState : GameState
     public override void Exit()
     {
         this.gameManager.gameObject.SetActive(false);
+        this.uiManager.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -91,8 +86,6 @@ public class BulletHellInGameState : GameState
     /// <param name="finalScore">the final score that the player got</param>
     private void OnPlayerDeath(float finalScore)
     {
-        this.finalScore = finalScore;
-
         RequestTransition(BulletHellStateMachine.GameStateType.POSTGAME);
     }
 

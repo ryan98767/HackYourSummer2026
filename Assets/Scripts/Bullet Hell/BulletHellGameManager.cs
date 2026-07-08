@@ -88,6 +88,7 @@ public class BulletHellGameManager : MonoBehaviour
         {
             // Turn off the managers first
             this.raindropManager.EndGame();
+            this.raindropManager.gameObject.SetActive(false);
 
             this.PlayerDied.Invoke(this.currentScore);
         }

@@ -114,14 +114,12 @@ public class RaindropManager : MonoBehaviour
         // Next, destroy each raindrop GO and clear it from the queue
         while (this.inactiveRaindrops.TryDequeue(out BulletHellRaindrop dequeuedRaindrop))
         {
-            Destroy(dequeuedRaindrop);
+            Destroy(dequeuedRaindrop.gameObject);
         }
 
-        this.activeRaindrops.Clear();
         this.inactiveRaindrops.Clear();
 
         this.isGameOn = false;
-        this.gameObject.SetActive(false);
     }
 
     /// <summary>

@@ -54,6 +54,7 @@ public class BulletHellPostGameUIManager : BulletHellCanvasUI
 
         if (this.buildupAccumulator >= this.timeBeforeBuildupFinish)
         {
+            this.lerpTextComponent.Initialize();
             this.lerpTextComponent.SetTarget(this.finalScore);
             this.readyToBuildUp = true;
         }
@@ -65,9 +66,6 @@ public class BulletHellPostGameUIManager : BulletHellCanvasUI
     /// <param name="finalScore">the score that the lerping will eventually get to</param>
     public void Initialize(float finalScore)
     {
-        this.lerpTextComponent = this.gameObject.GetComponent<LerpText>();
-        this.lerpTextMeshProComponent = this.gameObject.GetComponent<TextMeshProUGUI>();
-
         this.finalScore = finalScore;
         this.lerpTextMeshProComponent.text = 0.ToString();
     }
@@ -91,5 +89,11 @@ public class BulletHellPostGameUIManager : BulletHellCanvasUI
         {
             StartBuildup(dt);
         }
+    }
+
+    public override void Show()
+    {
+        base.Show();
+        this.gameObject.SetActive(true);
     }
 }

@@ -821,6 +821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialUIManager: {fileID: 644723227}
   inGameUIManager: {fileID: 1868624156}
+  postGameUIManager: {fileID: 1951769020}
   tutorialExitArea: {fileID: 1502227369}
   showcaseRaindrop: {fileID: 424519304}
   gameManager: {fileID: 222376650}
@@ -2344,8 +2345,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -135.99}
-  m_SizeDelta: {x: 289.4436, y: 66.4764}
+  m_AnchoredPosition: {x: 0.000000017229, y: -143.2}
+  m_SizeDelta: {x: 1920, y: 80.8918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593501133
 MonoBehaviour:
@@ -2367,7 +2368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ph
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2468,7 +2469,7 @@ MonoBehaviour:
   statementEight: The big leagues aren't calling just yet.
   statementNine: Ever considered going pro?
   statementTen: Herobrine ain't got NOTHING on you.
-  label: {fileID: 0}
+  label: {fileID: 1593501133}
 --- !u!1 &1734552051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,7 +3102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1951769019
 RectTransform:
   m_ObjectHideFlags: 0

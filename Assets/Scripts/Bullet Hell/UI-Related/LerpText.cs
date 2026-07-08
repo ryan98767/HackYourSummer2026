@@ -48,7 +48,7 @@ public class LerpText : MonoBehaviour
     }
 
     /// <summary>
-    /// What happens evgery frame during the game
+    /// What happens every frame during the game
     /// </summary>
     /// <param name="dt">A reference to deltatime</param>
     public void Tick(float dt)

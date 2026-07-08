@@ -8,23 +8,29 @@ public class BulletHellStateMachine : MonoBehaviour
     /// <summary>
     /// The different game states that exist in this microgame
     /// </summary>
-    /// <remarks>This is made primarily so </remarks>
     public enum GameStateType
     {
         PREGAME,
         INGAME,
         POSTGAME,
-        PAUSE,
     }
 
 
     [Header("UIManagers")]
     /// <summary>
-    /// A referebce to the tutorial's UI Manager
+    /// A reference to the tutorial's UI Manager
     /// </summary>
     [SerializeField] private BulletHellTutorialUIManager tutorialUIManager;
 
+    /// <summary>
+    /// A reference to the main game's UI manager
+    /// </summary>
     [SerializeField] private BulletHellInGameUIManager inGameUIManager;
+
+    /// <summary>
+    /// A reference to the post-game's UI manager
+    /// </summary>
+    [SerializeField] private BulletHellPostGameUIManager postGameUIManager;
 
 
     [Header("Exit Areas")]
@@ -68,7 +74,15 @@ public class BulletHellStateMachine : MonoBehaviour
     /// </summary>
     private BulletHellPreState preState;
 
+    /// <summary>
+    /// A reference to the in-game state of the bullet hell
+    /// </summary>
     private BulletHellInGameState inGameState;
+
+    /// <summary>
+    /// A reference to the post-game state of the bullet hell
+    /// </summary>
+    private BulletHellPostGameState postGameState;
 
     /// <summary>
     /// Initializes all of the states and begins the initial state.
@@ -85,6 +99,9 @@ public class BulletHellStateMachine : MonoBehaviour
         this.inGameState = new BulletHellInGameState(this.player, this.gameManager, 
             this.inGameUIManager);
         this.inGameState.RequestedTransition += SwitchToState;
+
+        this.postGameState = new BulletHellPostGameState(this.postGameUIManager);
+        this.gameManager.PlayerDied += this.postGameState.OnPlayerDeath;
 
         this.SwitchToState(this.initialGameState);
     }
@@ -124,6 +141,8 @@ public class BulletHellStateMachine : MonoBehaviour
                 return this.preState;
             case GameStateType.INGAME:
                 return this.inGameState;
+            case GameStateType.POSTGAME:
+                return this.postGameState;
             default:
                 return null;
         }
