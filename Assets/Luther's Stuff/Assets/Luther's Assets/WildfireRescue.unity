@@ -2332,7 +2332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 939640192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SprayPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2797,7 +2797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1032885641}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2828,7 +2828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1064632554}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CarrySlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5836,7 +5836,7 @@ GameObject:
   - component: {fileID: 2016419503}
   - component: {fileID: 2016419502}
   - component: {fileID: 2016419505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WildfirePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6014,8 +6014,8 @@ MonoBehaviour:
   sprayRange: 1.2
   fireLayer:
     serializedVersion: 2
-    m_Bits: 0
-  debugSpray: 1
+    m_Bits: 64
+  debugSpray: 0
   carrySlot: {fileID: 1064632554}
 --- !u!1 &2020262270
 GameObject:
