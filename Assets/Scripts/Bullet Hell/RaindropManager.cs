@@ -1,22 +1,24 @@
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 /// <summary>
 /// 
 /// </summary>
 public class RaindropManager : MonoBehaviour
 {
-    /// <summary>
-    /// A reference to the camera that's being used
-    /// </summary>
-    [SerializeField] private Camera usedCamera;
+    public event Action PlayerHit;
 
+    [Header("Init Game Values")]
     /// <summary>
     /// The number of how many raindrops should fall on the screen per second
     /// </summary>
     [SerializeField] private float raindropSpawnRate;
+
+    /// <summary>
+    /// How often the direction and speed change, in seconds
+    /// </summary>
+    [SerializeField] private float difficultyInterval;
 
     /// <summary>
     /// How fast the raindrops fall in pixels per second
@@ -27,6 +29,12 @@ public class RaindropManager : MonoBehaviour
     /// The direction the next iteration of raindrops will fall at
     /// </summary>
     [SerializeField] private Vector2 raindropDirection;
+
+    [Header("GameObject references")]
+    /// <summary>
+    /// A reference to the camera that's being used
+    /// </summary>
+    [SerializeField] private Camera usedCamera;
 
     [SerializeField] private BulletHellRaindrop raindropPrefab;
 
@@ -41,18 +49,36 @@ public class RaindropManager : MonoBehaviour
     private List<BulletHellRaindrop> activeRaindrops;
 
     /// <summary>
-    /// 
+    /// The base amount of speed the raindrops will increase by
     /// </summary>
-    private float timePassed;
+    private const int RaindropBaseStepIncrease = 1;
 
     /// <summary>
-    /// Initializes the fields that haven't been properly populated yet
+    /// How long it's been since a newly spawned raindrop spawned
     /// </summary>
-    public void Start()
+    private float spawnInterval;
+
+    /// <summary>
+    /// How long it's been since a new change in direction to the raindrops
+    /// </summary>
+    private float raindropChangeInterval;
+
+    /// <summary>
+    /// Whether or not the game is active
+    /// </summary>
+    private bool isGameOn;
+
+
+    /// <summary>
+    /// Sets up the initial values for each major field prior to the start of the game
+    /// </summary>
+    public void Initialize()
     {
-        this.timePassed = 0f;
+        this.spawnInterval = 0f;
+        this.raindropChangeInterval = 0f;
         this.inactiveRaindrops = new Queue<BulletHellRaindrop>();
         this.activeRaindrops = new List<BulletHellRaindrop>();
+        this.isGameOn = true;
     }
 
 
@@ -62,8 +88,40 @@ public class RaindropManager : MonoBehaviour
     /// <param name="dt">a reference to deltatime</param>
     public void Tick(float dt)
     {
-        IntegrateTime(dt);
-        UpdateRaindrops(dt);
+        if (this.isGameOn)
+        {
+            IntegrateSpawningTime(dt);
+            IntegrateDirectionChangeTime(dt);
+            UpdateRaindrops(dt);
+        }
+    }
+
+    /// <summary>
+    /// Removes each reference to the raindrops and current gameobject while also stopping all 
+    /// future tick references
+    /// </summary>
+    public void EndGame()
+    {
+        // First, set all the active raindrops to be inactive
+        for (int i = this.activeRaindrops.Count - 1; i >= 0; i--)
+        {
+            BulletHellRaindrop currentRaindrop = this.activeRaindrops[i];
+            this.activeRaindrops.RemoveAt(i);
+
+            this.inactiveRaindrops.Enqueue(currentRaindrop);
+        }
+
+        // Next, destroy each raindrop GO and clear it from the queue
+        while (this.inactiveRaindrops.TryDequeue(out BulletHellRaindrop dequeuedRaindrop))
+        {
+            Destroy(dequeuedRaindrop);
+        }
+
+        this.activeRaindrops.Clear();
+        this.inactiveRaindrops.Clear();
+
+        this.isGameOn = false;
+        this.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -82,17 +140,33 @@ public class RaindropManager : MonoBehaviour
     /// Uses time in the minigame to determine whether to spawn another raindrop
     /// </summary>
     /// <param name="dt">a reference to the change in time</param>
-    private void IntegrateTime(float dt)
+    private void IntegrateSpawningTime(float dt)
     {
-        this.timePassed += dt;
+        this.spawnInterval += dt;
 
         float spawnInterval = 1f / this.raindropSpawnRate;
 
         // Uses a while-loop so that multiple raindrops can spawn in a singular frame
-        while (this.timePassed >= spawnInterval)
+        while (this.spawnInterval >= spawnInterval)
         {
             SpawnRaindrop();
-            this.timePassed -= spawnInterval;
+            this.spawnInterval -= spawnInterval;
+        }
+    }
+
+    /// <summary>
+    /// Uses time in the minigame to determine whether to change the direction and speed of 
+    /// the raindrops
+    /// </summary>
+    /// <param name="dt">a reference to deltatime</param>
+    private void IntegrateDirectionChangeTime(float dt)
+    {
+        this.raindropChangeInterval += dt;
+
+        while (this.raindropChangeInterval >= this.difficultyInterval)
+        {
+            UpdateRaindropDifficulty();
+            this.raindropChangeInterval -= raindropChangeInterval;
         }
     }
 
@@ -112,6 +186,7 @@ public class RaindropManager : MonoBehaviour
         else
         {
             upcomingRaindrop = Instantiate(this.raindropPrefab);
+            upcomingRaindrop.HitPlayer += OnHitPlayer;
         }
 
         // Get the spawn position, and then properly initialize the object
@@ -122,6 +197,17 @@ public class RaindropManager : MonoBehaviour
 
         upcomingRaindrop.gameObject.SetActive(true);
         this.activeRaindrops.Add(upcomingRaindrop);
+    }
+
+    /// <summary>
+    /// The actions to happen once the player is hit
+    /// </summary>
+    /// <remarks>I really should've made an event bus... The stack would be the Raindrop, then this
+    /// manager, then the GameManager, then the InGameState, then the UIState</remarks>
+    /// <see cref="BulletHellGameManager"/>
+    private void OnHitPlayer()
+    {
+        this.PlayerHit.Invoke();
     }
 
     /// <summary>
@@ -164,7 +250,7 @@ public class RaindropManager : MonoBehaviour
          */
         const float SpawningYCoordinate = 1f;
 
-        float randomXSpawn = Random.Range(-SpawningMargin, 1f + SpawningMargin);
+        float randomXSpawn = UnityEngine.Random.Range(-SpawningMargin, 1f + SpawningMargin);
         float ySpawn = SpawningYCoordinate + SpawningMargin;
 
         // Convert a new viewport into world coords
@@ -175,5 +261,35 @@ public class RaindropManager : MonoBehaviour
         worldPosition.z = 0f;
 
         return worldPosition;
+    }
+
+    /// <summary>
+    /// Updates the speed and direction of raindrops
+    /// </summary>
+    private void UpdateRaindropDifficulty()
+    {
+        // Firstly, increase the speed.
+        // The speed increase is mostly random, with the step modifier acting as the median
+        float increasedSpeedRate = UnityEngine.Random.Range(RaindropBaseStepIncrease / 2, 
+            RaindropBaseStepIncrease * 2 + 1);
+
+        this.raindropSpeed += increasedSpeedRate;
+
+        // Next, determine a new direction
+        // The direction is based on a random angle from 225 (the default), to 315
+        float newRaindropDirection = UnityEngine.Random.Range(225, 315 + 1) * Mathf.Deg2Rad;
+
+        this.raindropDirection = new Vector2(
+            Mathf.Cos(newRaindropDirection),
+            Mathf.Sin(newRaindropDirection)
+            ).normalized;
+
+        /*
+         * Finally, increase the number of raindrops that'll fall while also 
+         * decreasing the interval of difficulity to have at least *some*
+         * level of balancing
+         */
+        this.raindropSpawnRate++;
+        this.difficultyInterval += 0.5f;
     }
 }

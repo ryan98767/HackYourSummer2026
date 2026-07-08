@@ -71,24 +71,4 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapBox(groundCheck.position,new Vector2(1f, 0.1f), 0, groundLayer);
     }
     #endregion
-
-    ////temporary function to switch between control schemes
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Switch"))
-    //    {
-    //        sideScroll = !sideScroll;
-    //        rb.gravityScale = sideScroll ? 1f : 0f;
-    //        rb.linearVelocity = Vector2.zero;
-    //        Debug.Log("Switched control scheme");
-    //        if (playerInput.currentActionMap.name == "SideScroll")
-    //        {
-    //            playerInput.SwitchCurrentActionMap("TopDown");
-    //        }
-    //        else if (playerInput.currentActionMap.name == "TopDown")
-    //        {
-    //            playerInput.SwitchCurrentActionMap("SideScroll");
-    //        }
-    //    }
-    //}
 }

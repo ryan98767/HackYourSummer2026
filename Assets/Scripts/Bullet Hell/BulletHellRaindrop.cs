@@ -9,6 +9,11 @@ using UnityEngine;
 public class BulletHellRaindrop : MonoBehaviour
 {
     /// <summary>
+    /// Invoked when the raindrop has hit a player
+    /// </summary>
+    public event Action HitPlayer;
+
+    /// <summary>
     /// Whether the raindrop will have any physics
     /// </summary>
     [SerializeField] private bool usesPhysics;
@@ -21,7 +26,7 @@ public class BulletHellRaindrop : MonoBehaviour
     /// <summary>
     /// The margin in which a raindrop is considered dead off-screen
     /// </summary>
-    private const float DespawnMargin = 1f;
+    private const float DespawnMargin = 0.1f;
 
     /// <summary>
     /// In p/s, how fast the raindrop will fall
@@ -57,10 +62,21 @@ public class BulletHellRaindrop : MonoBehaviour
         float initSpeed, bool isStatic = false)
     {
         this.transform.position = initPosition;
-        this.direction = initDirection;
-        this.speed = initSpeed;
         this.usesPhysics = isStatic;
         this.needsDespawn = false;
+
+        ChangeGameParams(initDirection, initSpeed);
+    }
+
+    /// <summary>
+    /// Changes the main parameters with the raindrop that's relavant to the game
+    /// </summary>
+    /// <param name="newDirection">the new direction to be set</param>
+    /// <param name="newSpeed">the new speed to be set</param>
+    public void ChangeGameParams(Vector2 newDirection, float newSpeed)
+    {
+        this.direction = newDirection;
+        this.speed = newSpeed;
     }
 
 
@@ -71,7 +87,7 @@ public class BulletHellRaindrop : MonoBehaviour
     /// <param name="usedCamera">a reference to the camera that's being used</param>
     public void Tick(float dt, Camera usedCamera)
     {
-        if (!this.usesPhysics)
+        if (this.usesPhysics)
         {
             this.transform.position += (Vector3)(direction * speed * dt);
 
@@ -82,11 +98,26 @@ public class BulletHellRaindrop : MonoBehaviour
             Vector3 viewportPoint = usedCamera.WorldToViewportPoint(this.transform.position);
 
             // Using AABB collision to see whether or not the raindrops are OOB
-            if (viewportPoint.x < 0f + DespawnMargin || viewportPoint.x > 1f + DespawnMargin ||
-                viewportPoint.y < 0f + DespawnMargin || viewportPoint.y > 1f + DespawnMargin)
+            if (viewportPoint.x < -DespawnMargin || viewportPoint.x > DespawnMargin + 1f ||
+                viewportPoint.y < -DespawnMargin || viewportPoint.y > DespawnMargin + 1f)
             {
                 this.needsDespawn = true;
             }
+        }
+    }
+
+    /// <summary>
+    /// The events to occur once the raindrop hits something
+    /// </summary>
+    /// <param name="collision">the collider that the raindrop collided with</param>
+    /// <remarks>I really should've made an event bus... The stack would be the Raindrop, then this
+    /// manager, then the GameManager, then the InGameState, then the UIState</remarks>
+    /// <see cref="RaindropManager.OnHitPlayer"/>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            this.HitPlayer.Invoke();
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -5,6 +6,11 @@ using UnityEngine;
 /// </summary>
 public abstract class GameState
 {
+    /// <summary>
+    /// Invoked when a transition needs to be made between one state to another
+    /// </summary>
+    public event Action<BulletHellStateMachine.GameStateType> RequestedTransition;
+
     /// <summary>
     /// The actions to occur once a state is entered
     /// </summary>
@@ -20,4 +26,13 @@ public abstract class GameState
     /// The actions to occur once a state has finished
     /// </summary>
     public abstract void Exit();
+
+    /// <summary>
+    /// Requests to transition to a new state
+    /// </summary>
+    /// <param name="toWhichState">the desired state to switch into</param>
+    protected void RequestTransition(BulletHellStateMachine.GameStateType toWhichState)
+    {
+        this.RequestedTransition.Invoke(toWhichState);
+    }
 }

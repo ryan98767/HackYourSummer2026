@@ -20,7 +20,7 @@ public class BulletHellPreState : GameState
     /// <summary>
     /// A reference to the tutorial's UI manager
     /// </summary>
-    private TutorialUIManager tutorialUIManager;
+    private BulletHellTutorialUIManager tutorialUIManager;
 
 
     /// <summary>
@@ -33,12 +33,20 @@ public class BulletHellPreState : GameState
     /// <param name="tutorialUIManager">The tutorial manager that assists in the creation
     /// and management of the tutorial's UI</param>
     public BulletHellPreState(BulletHellRaindrop showcaseRaindrop, WalkableArea exitArea,
-        TutorialUIManager tutorialUIManager)
+        BulletHellTutorialUIManager tutorialUIManager)
     {
         this.showcaseRaindrop = showcaseRaindrop;
-        this.exitArea = exitArea;
         this.tutorialUIManager = tutorialUIManager;
-        this.exitArea.OnTargetEntered += Exit;
+        this.exitArea = exitArea;
+        this.exitArea.OnTargetEntered += OnExitAreaEntered;
+    }
+
+    /// <summary>
+    /// The actions that're taken once the exit area is entered in this state
+    /// </summary>
+    private void OnExitAreaEntered()
+    {
+        RequestTransition(BulletHellStateMachine.GameStateType.INGAME);
     }
 
     /// <summary>
@@ -56,16 +64,15 @@ public class BulletHellPreState : GameState
     /// </summary>
     public override void Exit()
     {
-        this.showcaseRaindrop.gameObject.SetActive(false);
         this.tutorialUIManager.Hide();
     }
 
     /// <summary>
     /// Allows the label to follow the player.
-    /// <remarks>Delta time wouldn't be needed to follow the player here, which is why I didn't include it</remarks>
     /// </summary>
+    /// <remarks>Delta time wouldn't be needed to follow the player here, which is why I didn't include it</remarks>
     public override void Tick(float dt)
     {
-        this.tutorialUIManager.Tick();
+        this.tutorialUIManager.Tick(dt);
     }
 }
