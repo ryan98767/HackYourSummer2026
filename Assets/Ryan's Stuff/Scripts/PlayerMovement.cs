@@ -19,8 +19,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] PlayerInput playerInput;
 
-    //to check which movement system is being used and easily able to switch
-    private bool sideScroll = true;
+    /*
+     * NOTE FROM ADON: Changed the field to be serialized so it can be switched at 
+     * default
+     */
+    // to check which movement system is being used and easily able to switch
+    [SerializeField] bool sideScroll = true;
 
     //death check
     private bool hasDied = false;
@@ -75,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
     public void Jump(InputAction.CallbackContext context)
     {
         //jumping is only used in side scroll
-        if (context.performed && IsGrounded() && sideScroll)
+        if (sideScroll && context.performed && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump);
         }
