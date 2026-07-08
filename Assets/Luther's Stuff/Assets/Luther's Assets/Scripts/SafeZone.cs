@@ -1,4 +1,6 @@
 using UnityEngine;
+using WildfireGame;
+
 
 public class SafeZone : MonoBehaviour
 {

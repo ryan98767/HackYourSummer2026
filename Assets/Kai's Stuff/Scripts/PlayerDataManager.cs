@@ -1,4 +1,6 @@
 using UnityEngine;
+using Minigame2GameState;
+
 
 /// <summary>
 /// Stores player data that needs to be shared across scenes and minigames

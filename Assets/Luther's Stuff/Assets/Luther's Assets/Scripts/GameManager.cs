@@ -1,117 +1,120 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro; 
+using TMPro;
 
-public class GameManager : MonoBehaviour
+namespace WildfireGame
 {
-    public static GameManager Instance;
-
-    //level time 
-    public float levelTimeSeconds = 90f;
-
-    //score tracking stuff
-    public bool trackBestScore = true;
-    private const string BestScoreKey = "WildfireRescue_BestScore";
-
-    //ui stuff
-    public TMP_Text firesText;
-    public TMP_Text animalsText;
-    public TMP_Text waterText;
-    public TMP_Text timerText;
-    public GameObject resultsPanel;//shown when the timer hits zero
-    public TMP_Text resultsSummaryText; 
-    public TMP_Text bestScoreText;
-
-    //ref to player
-    public PlayerController player;
-
-    private int firesExtinguished = 0;
-    private int animalsRescued = 0;
-    private float timeRemaining;
-    private bool gameOver = false;
-
-    void Awake()
+    public class GameManager : MonoBehaviour
     {
-        Instance = this;
-    }
+        public static GameManager Instance;
 
-    void Start()
-    {
-        timeRemaining = levelTimeSeconds;
-        if (resultsPanel != null) resultsPanel.SetActive(false);
-        UpdateUI();
-    }
+        //level time 
+        public float levelTimeSeconds = 90f;
 
-    void Update()
-    {
-        if (gameOver) return;
+        //score tracking stuff
+        public bool trackBestScore = true;
+        private const string BestScoreKey = "WildfireRescue_BestScore";
 
-        timeRemaining -= Time.deltaTime;
-        if (timeRemaining <= 0f)
+        //ui stuff
+        public TMP_Text firesText;
+        public TMP_Text animalsText;
+        public TMP_Text waterText;
+        public TMP_Text timerText;
+        public GameObject resultsPanel;//shown when the timer hits zero
+        public TMP_Text resultsSummaryText;
+        public TMP_Text bestScoreText;
+
+        //ref to player
+        public PlayerController player;
+
+        private int firesExtinguished = 0;
+        private int animalsRescued = 0;
+        private float timeRemaining;
+        private bool gameOver = false;
+
+        void Awake()
         {
-            timeRemaining = 0f;
-            EndGame();
+            Instance = this;
         }
 
-        if (waterText != null && player != null)
+        void Start()
         {
-            waterText.text = "Water: " + player.currentWater + " / " + player.maxWater;
-        }
-        if (timerText != null)
-        {
-            timerText.text = "Time: " + Mathf.CeilToInt(timeRemaining);
-        }
-    }
-
-    public void OnFireExtinguished()
-    {
-        firesExtinguished++;
-        UpdateUI();
-    }
-
-    public void OnAnimalsDroppedOff(int count)
-    {
-        animalsRescued += count;
-        UpdateUI();
-    }
-
-    void UpdateUI()
-    {
-        if (firesText != null) firesText.text = "Fires Out: " + firesExtinguished;
-        if (animalsText != null) animalsText.text = "Animals Saved: " + animalsRescued;
-    }
-
-    void EndGame()
-    {
-        gameOver = true;
-
-        int score = firesExtinguished + animalsRescued;
-        int best = score;
-
-        if (trackBestScore)
-        {
-            int previousBest = PlayerPrefs.GetInt(BestScoreKey, 0);
-            best = Mathf.Max(previousBest, score);
-            PlayerPrefs.SetInt(BestScoreKey, best);
-            PlayerPrefs.Save();
+            timeRemaining = levelTimeSeconds;
+            if (resultsPanel != null) resultsPanel.SetActive(false);
+            UpdateUI();
         }
 
-        if (resultsSummaryText != null)
+        void Update()
         {
-            resultsSummaryText.text = $"Fires put out: {firesExtinguished}\nAnimals saved: {animalsRescued}";
-        }
-        if (bestScoreText != null && trackBestScore)
-        {
-            bestScoreText.text = "Best score: " + best;
+            if (gameOver) return;
+
+            timeRemaining -= Time.deltaTime;
+            if (timeRemaining <= 0f)
+            {
+                timeRemaining = 0f;
+                EndGame();
+            }
+
+            if (waterText != null && player != null)
+            {
+                waterText.text = "Water: " + player.currentWater + " / " + player.maxWater;
+            }
+            if (timerText != null)
+            {
+                timerText.text = "Time: " + Mathf.CeilToInt(timeRemaining);
+            }
         }
 
-        if (resultsPanel != null) resultsPanel.SetActive(true);
-        Time.timeScale = 0f;
-    }
+        public void OnFireExtinguished()
+        {
+            firesExtinguished++;
+            UpdateUI();
+        }
 
-    public void RestartLevel()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        public void OnAnimalsDroppedOff(int count)
+        {
+            animalsRescued += count;
+            UpdateUI();
+        }
+
+        void UpdateUI()
+        {
+            if (firesText != null) firesText.text = "Fires Out: " + firesExtinguished;
+            if (animalsText != null) animalsText.text = "Animals Saved: " + animalsRescued;
+        }
+
+        void EndGame()
+        {
+            gameOver = true;
+
+            int score = firesExtinguished + animalsRescued;
+            int best = score;
+
+            if (trackBestScore)
+            {
+                int previousBest = PlayerPrefs.GetInt(BestScoreKey, 0);
+                best = Mathf.Max(previousBest, score);
+                PlayerPrefs.SetInt(BestScoreKey, best);
+                PlayerPrefs.Save();
+            }
+
+            if (resultsSummaryText != null)
+            {
+                resultsSummaryText.text = $"Fires put out: {firesExtinguished}\nAnimals saved: {animalsRescued}";
+            }
+            if (bestScoreText != null && trackBestScore)
+            {
+                bestScoreText.text = "Best score: " + best;
+            }
+
+            if (resultsPanel != null) resultsPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+        public void RestartLevel()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

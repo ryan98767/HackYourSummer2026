@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using PlayerMovementNameSpace;
 
 public class SetMovement : MonoBehaviour
 {

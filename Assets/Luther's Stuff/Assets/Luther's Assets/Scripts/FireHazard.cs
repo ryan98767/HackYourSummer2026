@@ -1,4 +1,5 @@
 using UnityEngine;
+using WildfireGame;
 
 public class FireHazard : MonoBehaviour
 {
