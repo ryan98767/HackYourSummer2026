@@ -5861,7 +5861,7 @@ MonoBehaviour:
   groundCheckRadius: 0.15
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   maxWater: 5
   currentWater: 5
   sprayPoint: {fileID: 939640192}
