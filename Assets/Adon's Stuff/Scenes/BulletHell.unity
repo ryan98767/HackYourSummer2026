@@ -2697,7 +2697,7 @@ GameObject:
   - component: {fileID: 1836935859}
   - component: {fileID: 1836935858}
   - component: {fileID: 1836935857}
-  - component: {fileID: 1836935856}
+  - component: {fileID: 1836935862}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2705,27 +2705,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1836935856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836935855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1cb9b453eac762418df8c9f722fbd4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1836935858}
-  moveSpeed: 10
-  jump: 10
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  groundCheck: {fileID: 0}
-  playerInput: {fileID: 1836935857}
-  sideScroll: 0
 --- !u!114 &1836935857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2753,8 +2732,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1836935856}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1836935862}
+        m_TargetAssemblyTypeName: BulletHellPlayerMovement, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
@@ -2841,10 +2820,10 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1836935856}
+      - m_Target: {fileID: 11500000, guid: 0ddcdd12ddc87884d8b7c544334dcddd, type: 3}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: Move
-        m_Mode: 0
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2865,7 +2844,7 @@ MonoBehaviour:
     m_ActionName: 'Side Scroll Movement/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1836935856}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -3018,6 +2997,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836935862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836935855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddcdd12ddc87884d8b7c544334dcddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1836935858}
+  moveSpeed: 10
+  playerInput: {fileID: 1836935857}
+  sideScroll: 0
 --- !u!1 &1868624154
 GameObject:
   m_ObjectHideFlags: 0
